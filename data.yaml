@@ -1,0 +1,6 @@
+train:  "synthetic_data/synthetic_set/images/train"
+val: "synthetic_data/synthetic_set/images/val"
+test: "synthetic_data/test"
+
+nc: 4  
+names: ['banana', 'apple', 'pear', 'tomato']
