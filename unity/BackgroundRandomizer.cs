@@ -1,6 +1,13 @@
 using UnityEngine;
 using UnityEngine.Perception.Randomization.Randomizers;
 
+// ------------------------------------------------------------
+// Randomizer tła sceny dla Unity Perception.
+// W każdej iteracji losowo wybiera teksturę tła i przypisuje
+// ją do obiektu typu Quad pełniącego rolę tła sceny.
+// Tekstury ładowane są z katalogu Resources.
+// ------------------------------------------------------------
+
 [AddComponentMenu("Perception/Randomizers/Background Image Randomizer")]
 public class BackgroundImageRandomizer : Randomizer
 {
