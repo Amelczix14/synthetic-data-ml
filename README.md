@@ -22,7 +22,7 @@ Projekt obejmuje:
 
 ### Randomizery Unity (C#)
 
-Pliki w katalogu `unity/randomizers/` są przeznaczone do użycia z pakietem **Unity Perception** i dziedziczą po klasie `Randomizer`.
+Pliki w katalogu `unity/` są przeznaczone do użycia z pakietem **Unity Perception** i dziedziczą po klasie `Randomizer`.
 
 #### `ObjectRandomizer.cs`
 - losuje liczbę instancji obiektów dla każdej klasy,
@@ -46,15 +46,23 @@ Pliki w katalogu `unity/randomizers/` są przeznaczone do użycia z pakietem **U
 
 Pliki w katalogu `python/` służą do przetwarzania danych wygenerowanych przez Unity.
 
-#### `json_to_yolo.py`
+### `enumerate.py`
+- zmienia domyślne nazwy plików generowanych przez Unity Perception
+(step0.camera.png, step0.frame_data.json) na spójne nazwy w formacie imgXXXX,
+- zapewnia jednoznaczne identyfikatory obrazów i adnotacji,
+- ułatwia dalsze przetwarzanie danych oraz ich łączenie z etykietami YOLO.
+
+#### `json_to_txt.py`
 - konwertuje adnotacje wygenerowane przez Unity Perception (JSON)
   do formatu YOLO (`.txt`),
 - przelicza współrzędne ramek ograniczających na postać znormalizowaną,
 - generuje pliki etykiet kompatybilne z YOLOv8.
 
-#### `utils.py`
-- funkcje pomocnicze do obsługi ścieżek, walidacji danych
-  oraz przetwarzania zbiorów obrazów.
+#### `yolo_structure.py`
+- dzieli zbiór danych syntetycznych na podzbiory treningowy, walidacyjny i testowy,
+- realizuje losowy, ale deterministyczny podział (stałe ziarno generatora losowego),
+- kopiuje obrazy (.png) oraz odpowiadające im etykiety (.txt) do struktury katalogów
+zgodnej z wymaganiami frameworka YOLO
 
 ---
 
@@ -63,7 +71,7 @@ Pliki w katalogu `python/` służą do przetwarzania danych wygenerowanych przez
 ### Unity
 - Unity 2021 LTS lub nowsze
 - Pakiet **Unity Perception**
-- Universal Render Pipeline (URP)
+- High Definition Render Pipeline (HDRP)
 
 ### Python
 - Python ≥ 3.8
